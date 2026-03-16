@@ -1,0 +1,42 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: apindex-db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-apindex}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-apindex}
+      POSTGRES_DB: ${POSTGRES_DB:-apindex}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-apindex} -d ${POSTGRES_DB:-apindex}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  backend:
+    image: apindex/backend:latest
+    container_name: apindex-backend
+    env_file: .env
+    environment:
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+  frontend:
+    image: apindex/frontend:latest
+    container_name: apindex-frontend
+    environment:
+      - BACKEND_URL=http://apindex-backend:8000
+    ports:
+      - "${PORT:-80}:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
