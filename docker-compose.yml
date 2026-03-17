@@ -16,7 +16,7 @@ services:
     restart: unless-stopped
 
   backend:
-    image: apindex/backend:latest
+    image: apindex/backend:1.1.0
     container_name: apindex-backend
     env_file: .env
     environment:
@@ -28,7 +28,7 @@ services:
     restart: unless-stopped
 
   frontend:
-    image: apindex/frontend:latest
+    image: apindex/frontend:1.1.0
     container_name: apindex-frontend
     environment:
       - BACKEND_URL=http://apindex-backend:8000
