@@ -6,7 +6,7 @@
 
 Organize, test, mock, and manage your APIs in one place.
 
-[Website](https://apindex.dev) · [Documentation](https://apindex.dev/docs) · [Pricing](https://apindex.dev/pricing) · [Report Bug](https://github.com/APIndex/apindex/issues/new?template=bug_report.yml) · [Request Feature](https://github.com/APIndex/apindex/issues/new?template=feature_request.yml)
+[Website](https://apindex.dev) · [Documentation](https://docs.apindex.dev/) · [Pricing](https://apindex.dev/#pricing) · [Report Bug](https://github.com/APIndex/apindex/issues/new?template=bug_report.yml) · [Request Feature](https://github.com/APIndex/apindex/issues/new?template=feature_request.yml)
 
 </div>
 
@@ -89,7 +89,7 @@ Database migrations run automatically on startup.
 | SLA & Dedicated Support | - | - | - | Yes |
 | Price | Free | $49/mo | $119/mo | Contact us |
 
-[View pricing](https://apindex.dev/pricing)
+[View pricing](https://apindex.dev/#pricing)
 
 ## MCP Integration (AI Agents)
 
@@ -108,7 +108,7 @@ APIndex includes a built-in MCP server for AI agent access. Connect Claude Deskt
 }
 ```
 
-Create an API key in **Admin > MCP Keys**. [Full MCP documentation](https://apindex.dev/docs/mcp)
+Create an API key in **Admin > MCP Keys**. [Full MCP documentation](https://docs.apindex.dev/#mcp)
 
 ## Support
 
